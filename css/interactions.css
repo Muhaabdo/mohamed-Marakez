@@ -63,6 +63,34 @@ select.lf-input:invalid{color:#aab0c4}
    mirrored ("13 / 1" instead of "1 / 13") unless forced ltr. */
 .mkzg-counter,.mkzg-lb-counter{direction:ltr;unicode-bidi:isolate}
 
+/* ---------- Project card offer badges (.mkz-offer-*) ---------- */
+.mkz-offer-badge{position:absolute;top:14px;right:14px;z-index:4;background:var(--coral);color:#fff;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:999px;box-shadow:0 6px 16px rgba(229,75,65,.4);white-space:nowrap}
+.mkz-offer{margin:14px 16px 0;background:rgba(229,75,65,.08);border:1px solid rgba(229,75,65,.22);border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:2px}
+.mkz-offer-tag{font-size:11px;font-weight:800;color:var(--coral)}
+.mkz-offer-text{margin:0;font-size:13px;color:var(--navy);font-weight:600;line-height:1.55}
+.mkz-stat-was{display:block;font-size:11px;font-weight:600;color:#9aa0b4;text-decoration:line-through;margin-top:2px}
+
+/* ---------- Scroll-triggered quick-capture popup (.qp-*) ----------
+   A centered, backdrop-blocking popup (same treatment on mobile and
+   desktop) so it's attention-grabbing enough to move the needle on
+   sign-ups. It can still reappear a few times per visit (with a cooldown)
+   if dismissed. */
+.qp-overlay{--navy:#21275b;--coral:#E54B41;display:none;position:fixed;inset:0;z-index:9997;align-items:center;justify-content:center;background:rgba(12,14,34,.72);backdrop-filter:blur(6px);padding:20px;box-sizing:border-box}
+.qp-overlay.is-visible{display:flex;animation:lf-fade .25s ease}
+.qp-overlay.is-hiding{animation:lf-fade-out .2s ease forwards}
+.qp-popup{position:relative;width:100%;max-width:360px;background:#fff;border-radius:18px;box-shadow:0 30px 70px rgba(12,14,34,.35);padding:22px 20px 18px;box-sizing:border-box;direction:rtl;font-family:"Cairo",Tahoma,"Segoe UI",sans-serif;animation:lf-pop .32s cubic-bezier(.22,.61,.36,1)}
+.qp-overlay.is-hiding .qp-popup{animation:lf-pop-out .2s ease forwards}
+.qp-close{position:absolute;top:12px;left:12px;width:30px;height:30px;border-radius:50%;border:none;background:#f2f3f8;color:#2a2e45;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
+.qp-close:hover{background:#e3e6ef}
+.qp-title{margin:4px 30px 0 0;font-size:16.5px;font-weight:800;color:var(--navy);line-height:1.55;text-align:center}
+.qp-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.qp-input{width:100%;box-sizing:border-box;font-family:inherit;font-size:14px;border:1.5px solid #e3e6ef;border-radius:10px;padding:12px 12px;color:#2a2e45;background:#fbfbfd}
+.qp-input:focus{outline:none;border-color:var(--coral);background:#fff;box-shadow:0 0 0 3px rgba(229,75,65,.12)}
+.qp-submit{margin-top:12px;width:100%;border:none;border-radius:10px;background:var(--coral);color:#fff;font-family:inherit;font-weight:700;font-size:15px;padding:13px;cursor:pointer;transition:background .2s ease}
+.qp-submit:hover{background:#c93a31}
+.qp-note{margin:11px 0 0;font-size:11px;color:#5f647c;line-height:1.6;text-align:center}
+.qp-note a{color:var(--coral);font-weight:700;text-decoration:none}
+
 /* ---------- Touch-friendly carousels ---------- */
 .mkz-slides,.mkzg-stage{touch-action:pan-y}
 

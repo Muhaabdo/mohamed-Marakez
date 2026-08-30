@@ -166,7 +166,10 @@
          the row, we just can't read a response back. */
       fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", body: payload })
         .catch(function () { /* ignore network errors, still forward the user */ })
-        .then(function () { window.location.href = "thank-you.html"; });
+        .then(function () {
+          try { sessionStorage.setItem("mkz_lead_submitted", "1"); } catch (e) {}
+          window.location.href = "thank-you.html";
+        });
     });
   }
 
@@ -421,6 +424,115 @@
     requestAnimationFrame(function () { banner.classList.add("is-visible"); });
   }
 
+  /* ---------------- Scroll-triggered quick-capture popup ----------------
+     Shows after the visitor scrolls halfway down the page, offering to
+     send current offers over WhatsApp in exchange for name + phone. Unlike
+     the main lead modal it can reappear (with a cooldown) if dismissed,
+     but stops for good once a lead is submitted anywhere on the page. */
+  function initQuickPopup() {
+    if (!document.querySelector(".mkz-grid")) return; // Marakez Projects page only
+
+    var SCROLL_THRESHOLD = 0.5;
+    var COOLDOWN_MS = 45000;
+    var MAX_SHOWS = 3;
+    var PHONE_RE = /^(?:\+?20|0)1[0125]\d{8}$/;
+
+    if (sessionStorage.getItem("mkz_lead_submitted") === "1") return;
+
+    var shows = parseInt(sessionStorage.getItem("mkz_quickpopup_shows") || "0", 10);
+    var nextEligibleAt = 0;
+    var visible = false;
+
+    var overlay = document.createElement("div");
+    overlay.className = "qp-overlay";
+    overlay.innerHTML =
+      '<div class="qp-popup" role="dialog" aria-modal="true" aria-label="احصل على العروض الحالية">' +
+        '<button type="button" class="qp-close" aria-label="إغلاق">' +
+          '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+        '</button>' +
+        '<p class="qp-title">احصل على العروض الحالية عن طريق الواتساب</p>' +
+        '<form class="qp-form" novalidate>' +
+          '<div class="qp-row">' +
+            '<input class="qp-input" name="name" type="text" placeholder="الاسم" autocomplete="name" required>' +
+            '<input class="qp-input" name="phone" type="tel" placeholder="رقم الموبايل" autocomplete="tel" required>' +
+          '</div>' +
+          '<button type="submit" class="qp-submit">ابعتلي العروض</button>' +
+          '<p class="qp-note">بتسجيلك بتوافق على <a href="privacy-policy.html">سياسة الخصوصية</a></p>' +
+        '</form>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var form = overlay.querySelector(".qp-form");
+    var phoneInput = form.phone;
+
+    function show() {
+      if (visible || shows >= MAX_SHOWS) return;
+      visible = true;
+      shows += 1;
+      sessionStorage.setItem("mkz_quickpopup_shows", String(shows));
+      overlay.classList.remove("is-hiding");
+      overlay.classList.add("is-visible");
+    }
+
+    function hide() {
+      visible = false;
+      nextEligibleAt = Date.now() + COOLDOWN_MS;
+      overlay.classList.add("is-hiding");
+      setTimeout(function () { overlay.classList.remove("is-visible", "is-hiding"); }, 260);
+    }
+
+    overlay.querySelector(".qp-close").addEventListener("click", hide);
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) hide(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay.classList.contains("is-visible")) hide();
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = form.name.value.trim();
+      var phone = phoneInput.value.trim().replace(/[\s-]/g, "");
+      if (!name) { form.name.focus(); return; }
+      if (!PHONE_RE.test(phone)) {
+        phoneInput.setCustomValidity("رقم الموبايل مش صحيح، لازم يبدأ بـ 010/011/012/015");
+        phoneInput.reportValidity();
+        return;
+      }
+      phoneInput.setCustomValidity("");
+
+      var attribution = getAttribution();
+      var payload = new URLSearchParams({
+        name: name,
+        phone: phone,
+        project: "",
+        downPayment: "",
+        installment: "",
+        gclid: attribution.gclid || "",
+        utmSource: attribution.utm_source || "",
+        utmMedium: attribution.utm_medium || "",
+        utmCampaign: attribution.utm_campaign || "",
+        utmTerm: attribution.utm_term || "",
+        utmContent: attribution.utm_content || "",
+        pageUrl: window.location.href,
+        formType: "scroll_popup"
+      });
+
+      fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", body: payload })
+        .catch(function () {})
+        .then(function () {
+          try { sessionStorage.setItem("mkz_lead_submitted", "1"); } catch (e) {}
+          window.location.href = "thank-you.html";
+        });
+    });
+
+    window.addEventListener("scroll", function () {
+      if (sessionStorage.getItem("mkz_lead_submitted") === "1") return;
+      if (visible || shows >= MAX_SHOWS || Date.now() < nextEligibleAt) return;
+      var doc = document.documentElement;
+      var scrolled = (window.scrollY + window.innerHeight) / doc.scrollHeight;
+      if (scrolled >= SCROLL_THRESHOLD) show();
+    }, { passive: true });
+  }
+
   captureAttribution();
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -428,5 +540,6 @@
     initMiniCarousels();
     initGallery();
     initCookieBanner();
+    initQuickPopup();
   });
 })();
