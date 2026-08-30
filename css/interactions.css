@@ -1,0 +1,85 @@
+/* Added interactivity styles: lead-capture modal + gallery lightbox.
+   Base rules for these components were stripped from the saved source
+   (SingleFile only keeps CSS for elements that exist in the DOM at save
+   time, and these were closed/hidden when the pages were captured). */
+
+/* ---------- Lead form modal (.lf-*) ---------- */
+.lf-overlay{display:none}
+.lf-overlay.is-open{display:flex}
+.lf-overlay.is-open{animation:lf-fade .25s ease}
+.lf-overlay.is-closing{animation:lf-fade-out .2s ease forwards}
+
+.lf-modal{position:relative;width:100%;max-width:460px;max-height:90vh;overflow-y:auto;background:#fff;border-radius:22px;padding:34px 28px 28px;box-shadow:0 30px 70px rgba(12,14,34,.35);animation:lf-pop .32s cubic-bezier(.22,.61,.36,1)}
+.lf-overlay.is-closing .lf-modal{animation:lf-pop-out .2s ease forwards}
+@media (max-width:480px){
+  .lf-modal{max-width:100%;border-radius:20px 20px 0 0;max-height:92vh;animation:lf-sheet-up .32s cubic-bezier(.22,.61,.36,1)}
+  .lf-overlay.is-closing .lf-modal{animation:lf-sheet-down .22s ease forwards}
+}
+
+.lf-close{position:absolute;top:16px;left:16px;width:36px;height:36px;border-radius:50%;border:none;background:#f2f3f8;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
+.lf-badge{display:block;width:max-content;margin:0 auto 14px;background:rgba(229,75,65,.1);color:var(--coral);font-weight:700;font-size:13px;padding:6px 16px;border-radius:999px}
+.lf-title{margin:0 0 8px;text-align:center;font-size:22px;font-weight:800;color:var(--navy);line-height:1.35}
+.lf-sub{margin:0 0 22px;text-align:center;font-size:14px;color:var(--muted);line-height:1.7}
+
+.lf-form{display:flex;flex-direction:column;gap:16px}
+.lf-field{display:flex;flex-direction:column;gap:7px}
+.lf-label{font-size:13.5px;font-weight:700;color:var(--ink)}
+.lf-req{color:var(--err)}
+.lf-input{width:100%;box-sizing:border-box;font-family:inherit;font-size:14.5px;color:var(--ink);background:#fbfbfd;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+select.lf-input{appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%235f647c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');background-repeat:no-repeat;background-position:left 14px center;padding-left:34px}
+select.lf-input:invalid{color:#aab0c4}
+.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lf-input-group{position:relative;display:flex;align-items:center}
+.lf-input-group .lf-input{padding-left:44px}
+.lf-unit{position:absolute;left:14px;font-size:13px;color:var(--muted);font-weight:600;pointer-events:none}
+
+.lf-optional-tag{position:relative;text-align:center;font-size:12.5px;color:var(--muted);margin:2px 0}
+
+.lf-submit{width:100%;border:none;border-radius:14px;background:var(--coral);color:#fff;font-family:inherit;font-weight:700;font-size:16px;padding:15px;cursor:pointer;transition:background .2s ease,transform .12s ease,box-shadow .25s ease}
+.lf-privacy{margin:14px 0 0;text-align:center;font-size:12px;line-height:1.8;color:var(--muted)}
+.lf-privacy a{color:var(--coral);font-weight:700;text-decoration:none}
+
+/* ---------- Gallery lightbox (.mkzg-lb-*) ---------- */
+.mkzg-lb{display:none}
+.mkzg-lb.is-open{display:flex}
+.mkzg-lb.is-open{animation:lf-fade .25s ease}
+.mkzg-lb.is-closing{animation:lf-fade-out .2s ease forwards}
+
+.mkzg-lb-stage{position:relative;display:flex;align-items:center;justify-content:center;max-width:92vw;max-height:90vh}
+.mkzg-lb-img{max-width:92vw;max-height:82vh;border-radius:14px;object-fit:contain;display:block;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.mkzg-lb-close{position:absolute;top:-52px;left:0;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
+.mkzg-lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease;z-index:2}
+.mkzg-lb-prev{right:-16px}
+.mkzg-lb-next{left:-16px}
+.mkzg-lb-counter{position:absolute;bottom:-38px;left:0;right:0;text-align:center;color:#fff;font-size:13.5px;font-weight:600;opacity:.85}
+@media (max-width:640px){
+  .mkzg-lb-prev{right:6px}
+  .mkzg-lb-next{left:6px}
+  .mkzg-lb-nav{width:40px;height:40px}
+  .mkzg-lb-close{top:auto;bottom:-52px;left:50%;transform:translateX(-50%)}
+}
+
+/* Digits + "/" have no strong bidi direction, so under dir=rtl they render
+   mirrored ("13 / 1" instead of "1 / 13") unless forced ltr. */
+.mkzg-counter,.mkzg-lb-counter{direction:ltr;unicode-bidi:isolate}
+
+/* ---------- Touch-friendly carousels ---------- */
+.mkz-slides,.mkzg-stage{touch-action:pan-y}
+
+/* ---------- Cookie / privacy notice (.ck-*) ---------- */
+.ck-banner{--navy:#21275b;--coral:#E54B41;--coral-dk:#c93a31;font-family:"Cairo",Tahoma,"Segoe UI",sans-serif;direction:rtl;position:fixed;bottom:16px;right:16px;left:auto;z-index:9998;align-items:center;gap:12px;max-width:440px;width:calc(100% - 32px);background:#21275b;color:#fff;padding:12px 14px;border-radius:14px;box-shadow:0 12px 34px rgba(10,13,40,.4);border:1px solid rgba(255,255,255,.10);box-sizing:border-box}
+.ck-link:hover{text-decoration:underline}
+.ck-accept:hover{background:var(--coral-dk)}
+.ck-accept:active{transform:scale(.96)}
+.ck-close:hover{background:rgba(255,255,255,.22)}
+@keyframes ck-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ck-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(16px)}}
+@media (max-width:520px){.ck-banner{right:12px;left:12px;width:auto;max-width:none;bottom:12px;gap:10px;padding:11px 12px}}
+.ck-banner{display:none}
+.ck-banner.is-visible{display:flex;animation:ck-in .35s cubic-bezier(.22,.61,.36,1)}
+.ck-banner.is-hiding{animation:ck-out .25s ease forwards}
+.ck-icon{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:17px}
+.ck-text{flex:1 1 auto;margin:0;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.92)}
+.ck-link{color:var(--coral);font-weight:700;text-decoration:none}
+.ck-accept{flex:0 0 auto;border:none;border-radius:999px;background:var(--coral);color:#fff;font-family:inherit;font-weight:700;font-size:13px;padding:9px 18px;cursor:pointer;white-space:nowrap;transition:background .2s ease,transform .12s ease}
+.ck-close{flex:0 0 auto;width:28px;height:28px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
