@@ -433,12 +433,10 @@
   function initQuickPopup() {
     var SCROLL_THRESHOLD = 0.5;
     var COOLDOWN_MS = 45000;
-    var MAX_SHOWS = 3;
     var PHONE_RE = /^(?:\+?20|0)1[0125]\d{8}$/;
 
     if (sessionStorage.getItem("mkz_lead_submitted") === "1") return;
 
-    var shows = parseInt(sessionStorage.getItem("mkz_quickpopup_shows") || "0", 10);
     var nextEligibleAt = 0;
     var visible = false;
 
@@ -469,10 +467,8 @@
     var phoneInput = form.phone;
 
     function show() {
-      if (visible || shows >= MAX_SHOWS) return;
+      if (visible) return;
       visible = true;
-      shows += 1;
-      sessionStorage.setItem("mkz_quickpopup_shows", String(shows));
       overlay.classList.remove("is-hiding");
       overlay.classList.add("is-visible");
     }
@@ -529,7 +525,7 @@
 
     window.addEventListener("scroll", function () {
       if (sessionStorage.getItem("mkz_lead_submitted") === "1") return;
-      if (visible || shows >= MAX_SHOWS || Date.now() < nextEligibleAt) return;
+      if (visible || Date.now() < nextEligibleAt) return;
       var doc = document.documentElement;
       var scrolled = (window.scrollY + window.innerHeight) / doc.scrollHeight;
       if (scrolled >= SCROLL_THRESHOLD) show();
