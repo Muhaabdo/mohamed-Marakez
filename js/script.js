@@ -69,6 +69,7 @@
               '<option value="District 5">District 5</option>' +
               '<option value="Crescent Walk">Crescent Walk</option>' +
               '<option value="Ramla">Ramla</option>' +
+              '<option value="Shams Soma">Shams Soma</option>' +
             '</select>' +
           '</div>' +
           '<div class="lf-optional-tag"><span>بيانات اختيارية تساعدنا نرشحلك الأنسب</span></div>' +
@@ -124,7 +125,7 @@
     triggers.forEach(function (btn) {
       btn.addEventListener("click", function () {
         var label = btn.getAttribute("aria-label") || "";
-        var project = ["District 5", "Crescent Walk", "Ramla"].find(function (p) {
+        var project = ["District 5", "Crescent Walk", "Ramla", "Shams Soma"].find(function (p) {
           return label.indexOf(p) !== -1;
         });
         open(project);
@@ -430,8 +431,6 @@
      the main lead modal it can reappear (with a cooldown) if dismissed,
      but stops for good once a lead is submitted anywhere on the page. */
   function initQuickPopup() {
-    if (!document.querySelector(".mkz-grid")) return; // Marakez Projects page only
-
     var SCROLL_THRESHOLD = 0.5;
     var COOLDOWN_MS = 45000;
     var MAX_SHOWS = 3;
@@ -443,6 +442,9 @@
     var nextEligibleAt = 0;
     var visible = false;
 
+    var offerEls = document.querySelectorAll(".mkz-offer-text");
+    var offerText = offerEls.length === 1 ? offerEls[0].textContent.trim() : "";
+
     var overlay = document.createElement("div");
     overlay.className = "qp-overlay";
     overlay.innerHTML =
@@ -450,6 +452,7 @@
         '<button type="button" class="qp-close" aria-label="إغلاق">' +
           '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
         '</button>' +
+        (offerText ? '<span class="qp-offer">' + offerText + '</span>' : '') +
         '<p class="qp-title">احصل على العروض الحالية عن طريق الواتساب</p>' +
         '<form class="qp-form" novalidate>' +
           '<div class="qp-row">' +
