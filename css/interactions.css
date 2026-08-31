@@ -166,6 +166,8 @@ select.lf-input:invalid{color:#aab0c4}
 .mkzu-card:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 10px 24px rgba(33,39,91,.08)}
 .mkzu-name{font-weight:800;color:var(--navy);font-size:19px}
 .mkzu-desc{margin:0;font-size:13px;color:var(--muted);line-height:1.7}
+.mkzu-price-lbl{font-size:11.5px;color:var(--muted);font-weight:600}
+.mkzu-price-num{display:block;font-size:19px;font-weight:800;color:var(--coral);margin-top:2px}
 .mkzu-cta{margin-top:4px;border:1.5px solid var(--coral);background:transparent;color:var(--coral);font-family:inherit;font-weight:700;font-size:13px;padding:9px 18px;border-radius:999px;cursor:pointer;transition:all .2s ease}
 .mkzu-cta:hover{background:var(--coral);color:#fff}
 .mkzt-note{margin-top:22px;font-size:12.5px;color:var(--muted);text-align:center}
