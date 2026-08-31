@@ -84,7 +84,7 @@
             '</div>' +
           '</div>' +
           '<button class="lf-submit" type="submit">احصل على قائمة الأسعار</button>' +
-          '<p class="lf-privacy">بتسجيلك بتوافق على <a href="privacy-policy.html">سياسة الخصوصية</a>. بياناتك آمنة ومش هتتشارك إلا مع المطوّر المختص.</p>' +
+          '<p class="lf-privacy">بتسجيلك بتوافق على <a href="privacy-policy">سياسة الخصوصية</a>. بياناتك آمنة ومش هتتشارك إلا مع المطوّر المختص.</p>' +
         '</form>' +
       '</div>';
     document.body.appendChild(overlay);
@@ -169,7 +169,7 @@
         .catch(function () { /* ignore network errors, still forward the user */ })
         .then(function () {
           try { sessionStorage.setItem("mkz_lead_submitted", "1"); } catch (e) {}
-          window.location.href = "thank-you.html";
+          window.location.href = "thank-you";
         });
     });
   }
@@ -403,7 +403,7 @@
     banner.setAttribute("aria-label", "إشعار الكوكيز");
     banner.innerHTML =
       '<span class="ck-icon" aria-hidden="true">🍪</span>' +
-      '<p class="ck-text">بنستخدم الكوكيز لتحسين تجربتك وقياس أداء الموقع. <a class="ck-link" href="privacy-policy.html">سياسة الخصوصية</a></p>' +
+      '<p class="ck-text">بنستخدم الكوكيز لتحسين تجربتك وقياس أداء الموقع. <a class="ck-link" href="privacy-policy">سياسة الخصوصية</a></p>' +
       '<button type="button" class="ck-accept">موافق</button>' +
       '<button type="button" class="ck-close" aria-label="إغلاق">' +
         '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
@@ -458,7 +458,7 @@
             '<input class="qp-input" name="phone" type="tel" placeholder="رقم الموبايل" autocomplete="tel" required>' +
           '</div>' +
           '<button type="submit" class="qp-submit">ابعتلي العروض</button>' +
-          '<p class="qp-note">بتسجيلك بتوافق على <a href="privacy-policy.html">سياسة الخصوصية</a></p>' +
+          '<p class="qp-note">بتسجيلك بتوافق على <a href="privacy-policy">سياسة الخصوصية</a></p>' +
         '</form>' +
       '</div>';
     document.body.appendChild(overlay);
@@ -519,7 +519,7 @@
         .catch(function () {})
         .then(function () {
           try { sessionStorage.setItem("mkz_lead_submitted", "1"); } catch (e) {}
-          window.location.href = "thank-you.html";
+          window.location.href = "thank-you";
         });
     });
 
