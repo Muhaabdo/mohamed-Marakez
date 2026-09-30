@@ -1,0 +1,6 @@
+# Internal price/availability sheets must never be published
+*.xlsx
+*.xls
+*.csv
+# Local test harness files
+__*.html
