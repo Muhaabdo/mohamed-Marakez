@@ -1,0 +1,5 @@
+# Global Marketing Real Estate
+User-agent: *
+Allow: /
+
+Sitemap: https://globalmarketingrealestate.com/sitemap.xml
