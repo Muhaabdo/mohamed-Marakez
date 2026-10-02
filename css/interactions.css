@@ -305,7 +305,7 @@ button.is-sending{cursor:wait!important;opacity:.85;display:inline-flex;align-it
 @keyframes send-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.send-spinner{animation-duration:1.6s}}
 /* ---------- FAQ section (.faq-section) ---------- */
-.faq-section{--navy:#21275b;--coral:#E54B41;--muted:#6b7085;--line:#eceef4;font-family:"Cairo",Tahoma,"Segoe UI",sans-serif;direction:rtl;text-align:right;max-width:860px;margin:0 auto;padding:26px 4px 36px;box-sizing:border-box}
+.faq-section{--navy:#21275b;--coral:#E54B41;--muted:#6b7085;--line:#eceef4;font-family:"Cairo",Tahoma,"Segoe UI",sans-serif;direction:rtl;text-align:right;max-width:860px;margin:0 auto;padding:26px 16px 36px;box-sizing:border-box}
 .faq-head{text-align:center;margin-bottom:22px}
 .faq-eyebrow{display:inline-block;color:var(--coral);font-weight:700;font-size:14px;letter-spacing:.5px;background:rgba(229,75,65,.09);padding:6px 16px;border-radius:999px;margin-bottom:14px}
 .faq-title{color:var(--navy);font-size:clamp(24px,3.6vw,36px);font-weight:800;margin:0;line-height:1.25}
