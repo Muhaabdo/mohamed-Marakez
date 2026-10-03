@@ -10,7 +10,7 @@
     { name: "District 5", page: "district-5", location: "القاهرة الجديدة", image: "images/img-aa5eb51258dc6ed2.webp", startPrice: 11285000 },
     { name: "Crescent Walk", page: "crescent-walk", location: "التجمع السادس", image: "images/img-1b7eeca852104b27.webp", startPrice: 8464000 },
     { name: "Ramla", page: "ramla", location: "رأس الحكمة — الساحل الشمالي", image: "images/img-b71bcab33d0d0238.webp", startPrice: 22176000 },
-    { name: "Shams Soma", page: "shams-soma", location: "سوما باي — البحر الأحمر", image: "images/ss-gallery-1.jpg", startPrice: 20000000 },
+    { name: "Shams Soma", page: "shams-soma", location: "سوما باي — البحر الأحمر", image: "images/ss-img-1.jpg", startPrice: 20000000 },
     { name: "مشاريع ORA", page: "ora-projects", location: "القاهرة الجديدة — Zed East و Solana East", image: "images/ora-ze-2.jpg", startPrice: 8900000 }
   ];
 
