@@ -319,3 +319,6 @@ button.is-sending{cursor:wait!important;opacity:.85;display:inline-flex;align-it
 .faq-q:focus-visible{outline:3px solid var(--coral);outline-offset:-3px}
 .faq-q-text{margin:0;font-family:inherit;font-size:clamp(15px,2.2vw,17px);font-weight:700;color:var(--navy);line-height:1.5}
 .faq-a{margin:0;padding:0 18px 16px;color:var(--muted);font-size:clamp(14px,2vw,16px);line-height:1.8}
+/* ---------- Footer project links (.ft-projects) ---------- */
+.ft-projects{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:22px}
+.ft-projects-lbl{font-size:13px;font-weight:800;color:#fff}
