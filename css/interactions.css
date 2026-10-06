@@ -322,3 +322,4 @@ button.is-sending{cursor:wait!important;opacity:.85;display:inline-flex;align-it
 /* ---------- Footer project links (.ft-projects) ---------- */
 .ft-projects{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:22px}
 .ft-projects-lbl{font-size:13px;font-weight:800;color:#fff}
+.faq-a a{color:var(--coral);font-weight:700;text-decoration:underline}
