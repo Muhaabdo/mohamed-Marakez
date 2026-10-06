@@ -503,7 +503,7 @@
   function initQuickPopup() {
     var SCROLL_THRESHOLD = 0.5;
     var COOLDOWN_MS = 45000;
-    var PHONE_RE = /^(?:\+?20|0)1[0125]\d{8}$/;
+    var PHONE_RE = /^\+?\d{8,15}$/;
 
     if (document.body.hasAttribute("data-no-popup")) return;
     if (sessionStorage.getItem("mkz_lead_submitted") === "1") return;
@@ -566,7 +566,7 @@
       var phone = phoneInput.value.trim().replace(/[\s-]/g, "");
       if (!name) { form.name.focus(); return; }
       if (!PHONE_RE.test(phone)) {
-        phoneInput.setCustomValidity("رقم الموبايل مش صحيح، لازم يبدأ بـ 010/011/012/015");
+        phoneInput.setCustomValidity("رقم الموبايل مش صحيح، اكتبه كامل ومعاه كود الدولة لو بره مصر");
         phoneInput.reportValidity();
         return;
       }
@@ -743,7 +743,7 @@
      A form placed directly in the page (e.g. the ORA hub's budget form)
      instead of the modal. Sends the same fields to the same sheet. */
   function initInlineLeadForms() {
-    var PHONE_RE = /^(?:\+?20|0)1[0125]\d{8}$/;
+    var PHONE_RE = /^\+?\d{8,15}$/;
     document.querySelectorAll("form[data-inline-lead]").forEach(function (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -752,7 +752,7 @@
         var phone = phoneInput.value.trim().replace(/[\s-]/g, "");
         if (!name) { form.name.focus(); return; }
         if (!PHONE_RE.test(phone)) {
-          phoneInput.setCustomValidity("رقم الموبايل مش صحيح، لازم يبدأ بـ 010/011/012/015");
+          phoneInput.setCustomValidity("رقم الموبايل مش صحيح، اكتبه كامل ومعاه كود الدولة لو بره مصر");
           phoneInput.reportValidity();
           return;
         }

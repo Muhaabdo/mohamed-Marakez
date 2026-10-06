@@ -20,7 +20,7 @@ STRINGS = {
     "اكتب اسمك بالكامل": "Your full name",
     "الاسم": "Name",
     "مثال: +20 100 123 4567": "e.g. +20 100 123 4567",
-    "رقم الموبايل مش صحيح، لازم يبدأ بـ 010/011/012/015": "Please enter a valid phone number, including the country code if you are outside Egypt",
+    "رقم الموبايل مش صحيح، اكتبه كامل ومعاه كود الدولة لو بره مصر": "Please enter a valid phone number, including the country code if you are outside Egypt",
     "رقم الموبايل": "Mobile number",
     "المشروع اللي يهمك": "Project of interest",
     "اختار المشروع": "Select a project",
@@ -74,10 +74,8 @@ STRINGS = {
     "ج.م": "EGP",
 }
 
-# Behaviour differences for the English site (visitors may be outside Egypt).
+# Behaviour differences for the English site.
 PATCHES = [
-    # Accept international numbers, not only Egyptian mobiles.
-    ("var PHONE_RE = /^(?:\\+?20|0)1[0125]\\d{8}$/;", "var PHONE_RE = /^\\+?\\d{8,15}$/;", 2),
     # Currency before the amount, as on the English cards.
     ('fmt(u.price) + " EGP"', '"EGP " + fmt(u.price)', 1),
     ('fmt(u.price * p.down / 100) + " EGP"', '"EGP " + fmt(u.price * p.down / 100)', 1),
