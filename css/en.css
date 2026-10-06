@@ -1,0 +1,45 @@
+/* English (left-to-right) overrides. Loaded only by pages under /en/,
+   after the shared stylesheets, so the Arabic site is unaffected. */
+.hr-hero,
+.ck-banner,
+.lf-overlay,
+.qp-popup{direction:ltr}
+
+.ft-wrap,
+.mkz-wrap,
+.mkzd-section,
+.mkzg-section,
+.mkzl-section,
+.mkzo-section,
+.mkzt-section,
+.of-section,
+.pc-section,
+.faq-section{direction:ltr;text-align:left}
+
+.pb-section{direction:ltr}
+
+.mkzu-card,
+.of-form,
+.pc-rows{text-align:left}
+
+/* gallery arrows: previous on the left, next on the right */
+.mkzg-prev{right:auto;left:14px}
+.mkzg-next{left:auto;right:14px}
+.mkzg-lb-prev{right:auto;left:6px}
+.mkzg-lb-next{left:auto;right:6px}
+
+/* close buttons and floating contact move to the right-hand side */
+.lf-close{left:auto;right:16px}
+.qp-close{left:auto;right:12px}
+.fc-wrap{left:auto;right:18px}
+
+/* footer disclaimer accent on the leading edge */
+.ft-disclaimer{border-right:1px solid rgba(255,255,255,.10);border-left:4px solid var(--coral)}
+
+/* select arrow on the trailing edge */
+select.lf-input{background-position:right 14px center;padding-left:14px;padding-right:34px}
+
+/* utility pages */
+.ty-wrap[lang="en"],
+.pp-wrap[lang="en"],
+.au-wrap[lang="en"]{direction:ltr}

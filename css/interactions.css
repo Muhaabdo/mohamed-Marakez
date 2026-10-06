@@ -323,3 +323,7 @@ button.is-sending{cursor:wait!important;opacity:.85;display:inline-flex;align-it
 .ft-projects{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:22px}
 .ft-projects-lbl{font-size:13px;font-weight:800;color:#fff}
 .faq-a a{color:var(--coral);font-weight:700;text-decoration:underline}
+
+/* ---------- Language switch (.lang-switch) ---------- */
+.lang-switch{position:absolute;top:14px;inset-inline-end:16px;z-index:3;font-family:"Cairo",Tahoma,"Segoe UI",sans-serif;font-size:13px;font-weight:700;line-height:1;color:#fff;text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(15,18,45,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:background .2s ease,border-color .2s ease}
+.lang-switch:hover,.lang-switch:focus-visible{background:rgba(15,18,45,.6);border-color:#fff}
