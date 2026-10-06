@@ -4,3 +4,4 @@
 *.csv
 # Local test harness files
 __*.html
+__pycache__/
