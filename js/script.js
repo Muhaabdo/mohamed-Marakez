@@ -489,7 +489,7 @@
      also sent to the sheet. Pages not listed fall back to POPUP_DEFAULT. */
   var POPUP_PAGES = {
     "district-5": { project: "District 5", title: "شقتك جاهزة للاستلام في قلب القاهرة الجديدة", sub: "نبعتلك أسعار District 5 وخطط السداد على الواتساب" },
-    "crescent-walk": { project: "Crescent Walk", title: "شقق متشطبة بالكامل في التجمع السادس", sub: "نبعتلك أسعار Crescent Walk وخطط السداد على الواتساب" },
+    "crescent-walk": { project: "Crescent Walk", title: "شقق وفيلات في قلب التجمع السادس", sub: "نبعتلك أسعار Crescent Walk وخطط السداد على الواتساب" },
     "ramla": { project: "Ramla", title: "بيتك على بحر رأس الحكمة — متشطب بالكامل", sub: "نبعتلك أسعار Ramla وخطط السداد على الواتساب" },
     "shams-soma": { project: "Shams Soma", title: "احجز مكانك بدري في Shams Soma على البحر الأحمر", sub: "نبعتلك تفاصيل الوحدات وخطط السداد على الواتساب" },
   };
