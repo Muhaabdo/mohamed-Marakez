@@ -1,27 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://globalmarketingrealestate.com/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/"/>
   </url>
   <url>
     <loc>https://globalmarketingrealestate.com/ramla</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/ramla"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/ramla"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/ramla"/>
   </url>
   <url>
     <loc>https://globalmarketingrealestate.com/district-5</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/district-5"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/district-5"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/district-5"/>
   </url>
   <url>
     <loc>https://globalmarketingrealestate.com/crescent-walk</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/crescent-walk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/crescent-walk"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/crescent-walk"/>
   </url>
   <url>
     <loc>https://globalmarketingrealestate.com/shams-soma</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/shams-soma"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/shams-soma"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/shams-soma"/>
   </url>
   <url>
     <loc>https://globalmarketingrealestate.com/ora-projects</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/ora-projects"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/ora-projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/ora-projects"/>
+  </url>
+  <url>
+    <loc>https://globalmarketingrealestate.com/en/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/"/>
+  </url>
+  <url>
+    <loc>https://globalmarketingrealestate.com/en/ramla</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/ramla"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/ramla"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/ramla"/>
+  </url>
+  <url>
+    <loc>https://globalmarketingrealestate.com/en/district-5</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/district-5"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/district-5"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/district-5"/>
+  </url>
+  <url>
+    <loc>https://globalmarketingrealestate.com/en/crescent-walk</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/crescent-walk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/crescent-walk"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/crescent-walk"/>
+  </url>
+  <url>
+    <loc>https://globalmarketingrealestate.com/en/shams-soma</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/shams-soma"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/shams-soma"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/shams-soma"/>
+  </url>
+  <url>
+    <loc>https://globalmarketingrealestate.com/en/ora-projects</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://globalmarketingrealestate.com/ora-projects"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://globalmarketingrealestate.com/en/ora-projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalmarketingrealestate.com/ora-projects"/>
   </url>
 </urlset>

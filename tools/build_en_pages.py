@@ -63,17 +63,28 @@ def structural_simple(html, slug):
     if n == 0:
         sys.exit("%s: no dir=rtl lang=ar wrapper found" % slug)
     s = s.replace("dir=rtl lang=ar", "dir=ltr lang=en")
-    s = s.replace("href=%s/%s>" % (SITE, slug), "href=%s/en/%s>" % (SITE, slug))
+    if slug == "index":
+        if s.count("<link rel=canonical href=%s/>" % SITE) != 1:
+            sys.exit("index: canonical not found")
+        s = s.replace("<link rel=canonical href=%s/>" % SITE, "<link rel=canonical href=%s/en/>" % SITE)
+        sw = '<a class="lang-switch lang-switch--light" href="en/" hreflang="en" lang="en">English</a>'
+        if s.count(sw) != 1:
+            sys.exit("index: language switch not found")
+        s = s.replace(sw, '<a class="lang-switch lang-switch--light" href="../" hreflang="ar" lang="ar">العربية</a>')
+    else:
+        s = s.replace("href=%s/%s>" % (SITE, slug), "href=%s/en/%s>" % (SITE, slug))
     s = re.sub(r'(href|src)="(css|js|images)/', r'\1="../\2/', s)
     s = re.sub(r'\bsrc=(images/)', r'src=../\1', s)
     if s.count('src="../js/script.js?') != 1:
         sys.exit("%s: script tag not found" % slug)
     s = s.replace('src="../js/script.js?', 'src="../js/script.en.js?')
+    s = s.replace('src="../js/projects.js?', 'src="../js/projects.en.js?')
     s, k = re.subn(r'(<link rel="stylesheet" href="\.\./css/interactions\.css\?v=([^"]+)">)',
                    r'\1\n<link rel="stylesheet" href="../css/en.css?v=\2">', s, count=1)
     if k != 1:
         sys.exit("%s: interactions.css link not found" % slug)
     s = s.replace("href=/>", "href=/en/>")
+    s = s.replace(LEFT, "\0").replace(RIGHT, LEFT).replace("\0", RIGHT)
     return s
 
 def translate(s, slug, maps):
@@ -87,8 +98,8 @@ def translate(s, slug, maps):
         strings.update(m.STRINGS)
     for ar in sorted(strings, key=len, reverse=True):
         s = s.replace(ar, strings[ar])
-    keep = '<a class="lang-switch" href="../%s" hreflang="ar" lang="ar">العربية</a>' % slug
-    left = sorted(set(re.findall(r"[؀-ۿ][؀-ۿ ،؟]*", s.replace(keep, ""))))
+    probe = re.sub(r'<a class="lang-switch[^>]*>العربية</a>', "", s)
+    left = sorted(set(re.findall(r"[؀-ۿ][؀-ۿ ،؟]*", probe)))
     if left:
         sys.exit("%s: untranslated Arabic left:\n  %s" % (slug, "\n  ".join(left)))
     return s

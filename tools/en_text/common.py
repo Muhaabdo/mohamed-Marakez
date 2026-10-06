@@ -9,7 +9,7 @@ REGEX = [
     (r'aria-label="صورة (\d+)"', r'aria-label="Image \1"'),
 ]
 STRINGS = {
-    "الرئيسية": "Home",
+    '"name": "الرئيسية"': '"name": "Home"',
     "مقدم يبدأ من": "Down payment from",
     "سنوات تقسيط": "Years of installments",
     "تبدأ الأسعار من (ج.م)": "Prices from (EGP)",
@@ -70,6 +70,9 @@ STRINGS = {
     "مشاريع ORA القاهرة الجديدة<": "ORA Projects New Cairo<",
     "— جميع الحقوق محفوظة.": "— All rights reserved.",
     "سياسة الخصوصية": "Privacy Policy",
+    "<strong>مراكز</strong>": "<strong>Marakez</strong>",
+    "فدان مساحة المشروع": "feddans project area",
+    "أبرز المرافق": "Key facilities",
     # unit types
     "شاليهات": "Chalets",
     "تاون هاوس": "Townhouses",

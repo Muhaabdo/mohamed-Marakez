@@ -83,7 +83,36 @@ PATCHES = [
     ("pageUrl: window.location.href,", "pageUrl: window.location.href,\n        language: \"en\",", 3),
 ]
 
+PROJECTS_STRINGS = {
+    "رأس الحكمة — الساحل الشمالي": "Ras El Hekma — North Coast",
+    "سوما باي — البحر الأحمر": "Soma Bay — Red Sea",
+    "القاهرة الجديدة — Zed East و Solana East": "New Cairo — Zed East & Solana East",
+    "القاهرة الجديدة": "New Cairo",
+    "التجمع السادس": "6th Settlement",
+    "مشاريع ORA": "ORA Projects",
+    "الأسعار تبدأ من <strong>' + p.startPrice.toLocaleString(\"en-US\") + \" ج.م</strong>": "Prices from <strong>EGP ' + p.startPrice.toLocaleString(\"en-US\") + \"</strong>",
+    "اعرف التفاصيل ←": "View details →",
+}
+
+def build_projects():
+    src = (ROOT / "js" / "projects.js").read_text(encoding="utf-8")
+    out = src
+    for ar in sorted(PROJECTS_STRINGS, key=len, reverse=True):
+        if ar not in out:
+            sys.exit("build_en_js: string no longer in projects.js, update PROJECTS_STRINGS: " + ar)
+        out = out.replace(ar, PROJECTS_STRINGS[ar])
+    out, n = re.subn(r'image: "images/', 'image: "../images/', out)
+    if n == 0:
+        sys.exit("build_en_js: no image paths found in projects.js")
+    left = sorted(set(re.findall(r"[\u0600-\u06FF][\u0600-\u06FF \u060C]*", out)))
+    if left:
+        sys.exit("build_en_js: untranslated Arabic left in projects.en.js:\n  " + "\n  ".join(left))
+    dest = ROOT / "js" / "projects.en.js"
+    dest.write_text("/* GENERATED from js/projects.js by tools/build_en_js.py — do not edit by hand. */\n" + out, encoding="utf-8", newline="")
+    print("wrote", dest.relative_to(ROOT), len(out), "bytes")
+
 def main():
+    build_projects()
     src = SRC.read_text(encoding="utf-8")
     out = src
     for ar in sorted(STRINGS, key=len, reverse=True):

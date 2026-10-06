@@ -1,0 +1,31 @@
+"""English text for index.html (home)."""
+SIMPLE = True
+REGEX = []
+STRINGS = {
+    "Global Marketing Real Estate | مشاريع مراكز العقارية في مصر": "Global Marketing Real Estate | Marakez Projects in Egypt",
+    "منصة Global Marketing Real Estate المتخصصة في تسويق مشاريع مراكز (Marakez) العقارية — استكشف أحدث المشاريع والأسعار وأنظمة التقسيط، واحجز استشارتك المجانية الآن.": "Global Marketing Real Estate is a platform specialized in marketing Marakez real estate projects. Explore the latest projects, prices and payment plans, and book your free consultation.",
+    "من نحن": "About us",
+    "منصّة إعلامية تسويقية عقارية مستقلة، هدفها إننا نوصّلك لأفضل الفرص العقارية بأوضح المعلومات وأسهل طريقة للتواصل.": "An independent real estate marketing and media platform that connects you to the best property opportunities with clear information and an easy way to get in touch.",
+    "المشاريع المتاحة": "Available projects",
+    "اختار المشروع اللي يناسبك": "Choose the project that suits you",
+    " إحنا في <strong>Global Marketing Real Estate</strong> بنقدّم عرض ومعلومات عن المشاريع العقارية": " At <strong>Global Marketing Real Estate</strong> we present real estate projects and their details",
+    " المميزة بشكل واضح ومنظّم، ونسهّل على العميل إنه يوصل للمشروع اللي يناسب احتياجه وميزانيته،": " clearly and in an organized way, helping each client find the project that fits their needs and budget",
+    " ويتواصل مع الجهة المختصة بأسرع طريقة. تركيزنا الأساسي على <strong>جودة المعلومة</strong>": " and reach the right party quickly. Our focus is on <strong>quality information</strong>,",
+    " و<strong>سهولة التواصل</strong> و<strong>مصداقية العرض</strong>.": " <strong>easy communication</strong> and <strong>honest presentation</strong>.",
+    "مصداقية وشفافية": "Credibility and transparency",
+    "معلومات واضحة وصادقة عن كل مشروع من غير مبالغة.": "Clear, honest information about every project, without exaggeration.",
+    "تواصل سريع": "Fast response",
+    "نرجعلك في أسرع وقت بأحدث الأسعار وأنظمة التقسيط.": "We get back to you quickly with the latest prices and payment plans.",
+    "خبرة في السوق": "Market experience",
+    "فهم حقيقي للسوق العقاري واحتياجات العميل.": "A real understanding of the property market and what clients need.",
+    "مالك المنصّة": "Platform owner",
+    "aria-hidden=true>م</div>": "aria-hidden=true>M</div>",
+    "محمد احمد عبدالعزيز الصباغ": "Mohamed El Sabagh",
+    "المالك والمدير المسؤول عن المنصّة": "Owner and manager of the platform",
+    " يملك ويدير هذه المنصّة بصفة مستقلة، لعرض وتسويق المشاريع العقارية والتواصل مع العملاء.": " Owns and operates this platform independently to present and market real estate projects and communicate with clients.",
+    "<strong>إخلاء مسؤولية:</strong> هذا الموقع منصّة إعلامية تسويقية مستقلة، وليس الموقع الرسمي": "<strong>Disclaimer:</strong> this website is an independent marketing and media platform, not the official website",
+    " للمطوّر أو الجهة المالكة للمشاريع. جميع أسماء وشعارات المشاريع والمطوّرين مملوكة لأصحابها،": " of the developer or the owner of the projects. All project and developer names and logos belong to their owners,",
+    " وكافة البيانات لأغراض استرشادية وقابلة للتغيير. يُرجى الرجوع للمطوّر الرسمي لاعتماد التفاصيل النهائية.": " and all information is for guidance and subject to change. Please confirm final details with the official developer.",
+    "مهتم بمشاريع مراكز؟": "Interested in Marakez projects?",
+    "سيبلنا بياناتك ونتواصل معاك بأحدث الأسعار خلال دقائق.": "Leave your details and we will contact you with the latest prices within minutes.",
+}

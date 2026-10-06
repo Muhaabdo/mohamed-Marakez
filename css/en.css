@@ -43,3 +43,10 @@ select.lf-input{background-position:right 14px center;padding-left:14px;padding-
 .ty-wrap[lang="en"],
 .pp-wrap[lang="en"],
 .au-wrap[lang="en"]{direction:ltr}
+
+/* home and privacy pages */
+.au-disclaimer{text-align:left;border-right:1px solid var(--line);border-left:4px solid var(--coral)}
+.pp-wrap[lang="en"]{text-align:left}
+.pp-intro{border-right:0;border-left:4px solid var(--coral)}
+.pp-list li{padding:6px 0 6px 24px}
+.pp-list li::before{right:auto;left:4px}
