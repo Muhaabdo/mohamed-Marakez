@@ -329,3 +329,22 @@ button.is-sending{cursor:wait!important;opacity:.85;display:inline-flex;align-it
 .lang-switch:hover,.lang-switch:focus-visible{background:rgba(15,18,45,.6);border-color:#fff}
 .lang-switch--light{position:static;display:block;width:-moz-max-content;width:max-content;margin:0 auto 14px;color:#21275b;border-color:rgba(33,39,91,.28);background:#fff}
 .lang-switch--light:hover,.lang-switch--light:focus-visible{background:#f2f3f8;border-color:#21275b}
+
+/* WhatsApp CTAs on Marakez project pages (hero, unit cards, detail + budget sections) */
+.wa-ico{font-size:22px;line-height:1;flex-shrink:0}
+.hr-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
+.hr-cta-wa{background:#1FAF54;box-shadow:0 12px 30px rgba(31,175,84,.42);text-decoration:none}
+.hr-cta-wa:hover{background:#178f44;box-shadow:0 16px 38px rgba(31,175,84,.5)}
+.hr-cta-ghost{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.7);cursor:pointer;font-family:inherit;font-weight:700;font-size:clamp(15px,2vw,16.5px);padding:15px 26px;border-radius:14px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:background .2s ease}
+.hr-cta-ghost:hover{background:rgba(255,255,255,.18)}
+.hr-cta-ghost:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.mkzu-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+.mkzu-actions .mkzu-cta{margin-top:0}
+.mkzu-wa{display:inline-flex;align-items:center;gap:6px;background:#1FAF54;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:9px 16px;border-radius:999px;border:1.5px solid #1FAF54;transition:background .2s ease}
+.mkzu-wa:hover{background:#178f44;border-color:#178f44}
+.mkzu-wa .wa-ico{font-size:16px}
+.cta-pair{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
+.cta-wa{display:inline-flex;align-items:center;gap:9px;background:#1FAF54;color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;padding:14px 24px;border-radius:14px;box-shadow:0 8px 22px rgba(31,175,84,.34);transition:background .2s ease}
+.cta-wa:hover{background:#178f44}
+.mkzu-wa:focus-visible,.cta-wa:focus-visible,.hr-cta-wa:focus-visible{outline:3px solid #21275b;outline-offset:2px}
+@media (max-width:700px){.hr-ctas,.cta-pair{flex-direction:column;align-items:stretch}.hr-cta-wa,.hr-cta-ghost,.cta-wa{width:100%;justify-content:center;box-sizing:border-box}.cta-pair .mkzd-cta,.cta-pair .pb-cta{width:100%;justify-content:center}}
